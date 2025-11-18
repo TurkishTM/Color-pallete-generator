@@ -14,9 +14,8 @@
   <section class="hero-section" id="hero">
     <div class="hero-content">
       <h1 class="hero-title">Color Palette Generator</h1>
-      <p class="hero-subtitle">Discover beautiful color combinations instantly. Click any swatch to copy its hex code.
+      <p class="hero-subtitle">Discover beautiful color combinations instantly.
       </p>
-      <button class="hero-cta-btn" id="heroGenerateBtn">Start Generating</button>
     </div>
   </section>
 
@@ -31,10 +30,10 @@
           inspiration.</p>
       </div>
 
-      <!-- Copy to clipboard feature -->
+      <!-- Color display feature -->
       <div class="feature-card feature-card-2">
-        <h3 class="feature-title">One-Click Copy</h3>
-        <p class="feature-description">Click any color swatch to instantly copy its hex code to your clipboard.</p>
+        <h3 class="feature-title">Hex Code Display</h3>
+        <p class="feature-description">Each color swatch displays its hex code for easy reference.</p>
       </div>
 
       <!-- Modern design feature -->
@@ -52,19 +51,22 @@
 
       <!-- Container for the three color swatches -->
       <div class="palette-container">
-        <!-- First color swatch - click to copy hex code -->
-        <div class="swatch" id="swatch1">
-          <span class="hex-code" id="hex1">#000000</span>
+        <!-- First color swatch -->
+        <div class="swatch-wrapper">
+          <div class="swatch" id="swatch1"></div>
+          <p class="hex-code" id="hex1">#000000</p>
         </div>
 
-        <!-- Second color swatch - click to copy hex code -->
-        <div class="swatch" id="swatch2">
-          <span class="hex-code" id="hex2">#000000</span>
+        <!-- Second color swatch -->
+        <div class="swatch-wrapper">
+          <div class="swatch" id="swatch2"></div>
+          <p class="hex-code" id="hex2">#000000</p>
         </div>
 
-        <!-- Third color swatch - click to copy hex code -->
-        <div class="swatch" id="swatch3">
-          <span class="hex-code" id="hex3">#000000</span>
+        <!-- Third color swatch -->
+        <div class="swatch-wrapper">
+          <div class="swatch" id="swatch3"></div>
+          <p class="hex-code" id="hex3">#000000</p>
         </div>
       </div>
 
@@ -74,9 +76,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Little notification that pops up when you copy a color -->
-  <div class="copied-message" id="copiedMsg">Copied!</div>
 
   <!-- Footer with credits -->
   <footer class="page-footer">

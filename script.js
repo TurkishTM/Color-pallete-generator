@@ -8,8 +8,6 @@ const hex2 = document.getElementById('hex2');
 const hex3 = document.getElementById('hex3');
 
 const generateBtn = document.getElementById('generateBtn');
-const heroGenerateBtn = document.getElementById('heroGenerateBtn');
-const copiedMsg = document.getElementById('copiedMsg');
 
 // Function to create a random hex color
 // Just picks random characters from 0-9 and A-F
@@ -42,56 +40,11 @@ function generatePalette() {
   hex3.textContent = color3;
 }
 
-// Copy hex code to clipboard when user clicks a swatch
-function copyHexCode(hexText) {
-  // Create a hidden textarea element
-  // Browsers can only copy from input/textarea elements
-  const tempInput = document.createElement('textarea');
-  tempInput.value = hexText;
-  tempInput.style.position = 'fixed';
-  tempInput.style.opacity = '0';
-  document.body.appendChild(tempInput);
-  
-  // Select and copy the text
-  tempInput.select();
-  document.execCommand('copy');
-  
-  // Clean up - remove the temporary element
-  document.body.removeChild(tempInput);
-
-  // Show the "Copied!" message
-  copiedMsg.classList.add('show');
-
-  // Hide the message after 900ms
-  setTimeout(function() {
-    copiedMsg.classList.remove('show');
-  }, 900);
-}
-
 // Event listeners - what happens when users click things
-
-// Clicking each swatch copies its hex code
-swatch1.addEventListener('click', function() {
-  copyHexCode(hex1.textContent);
-});
-
-swatch2.addEventListener('click', function() {
-  copyHexCode(hex2.textContent);
-});
-
-swatch3.addEventListener('click', function() {
-  copyHexCode(hex3.textContent);
-});
 
 // Generate button in main section
 generateBtn.addEventListener('click', function() {
   generatePalette();
-});
-
-// Hero button - generates colors and scrolls to palette
-heroGenerateBtn.addEventListener('click', function() {
-  generatePalette();
-  document.getElementById('palette').scrollIntoView({ behavior: 'smooth' });
 });
 
 // Generate initial colors when page loads
