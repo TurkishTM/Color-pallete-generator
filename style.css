@@ -1,192 +1,336 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+/* Color variables - all our colors in one place */
+:root {
+  /* Primary colors - darker to lighter shades */
+  --primary-dark: #1a202c;
+  --primary: #2d3748;
+  --primary-light: #4a5568;
+  
+  /* Secondary colors - different shades of blue */
+  --secondary-dark: #2c5282;
+  --secondary: #3182ce;
+  --secondary-light: #63b3ed;
+  
+  /* Accent colors - fun colors for buttons and highlights */
+  --accent-orange: #ed8936;
+  --accent-green: #48bb78;
+  --accent-purple: #9f7aea;
+  --accent-pink: #f687b3;
+  --accent-blue: #4299e1;
+  
+  /* Background colors - for different sections */
+  --bg-primary: #f7fafc;
+  --bg-secondary: #edf2f7;
+  --bg-card: #ffffff;
+  --bg-dark: #1a202c;
+  
+  /* Gradients - pretty color transitions */
+  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-footer: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-card-1: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-card-2: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  --gradient-card-3: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  
+  /* Text colors - different shades for readability */
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-light: #a0aec0;
+  --text-white: #ffffff;
+  
+  /* Shadows - to make things pop */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
 
-*,
-*::after,
-*::before {
+/* Reset - getting rid of default browser styles */
+* {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
   box-sizing: border-box;
-  font-family: 'Noto Sans',sans-serif;
-  color: rgb(51, 51, 51);
 }
 
-button {
-    font-family: "Muli", sans-serif;
+/* Main body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-path,
-i,
-svg {
+/* Smooth scrolling when clicking links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero section - big header area at the top */
+.hero-section {
+  background: var(--gradient-hero);
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Little decorative overlay effect */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
   pointer-events: none;
 }
 
-.colors {
-    min-height: 80vh;
-    display: flex;
-    color: rgb(212, 212, 212);
-  }
-
-.color {
-    height: 80vh;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    position: relative;
-    overflow: hidden;
-  }
-
-.color h2 {
-    font-size: 2rem;
-    cursor: pointer;
-  }
-
-.sliders {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 0%;
-    background: rgb(255, 255, 255);
-    opacity: 0;
-    padding: 1rem;
-    width: 80%;
-    border-top-right-radius: 1rem;
-    pointer-events: none;
-    border-top-left-radius: 1rem;
-    /* We are adding an adjustemnt class */
-    transform: translateY(100px);
-  }
-
-.sliders.active {
-    opacity: 1;
-    transform: translateY(0px);
-    pointer-events: all;
-  }
-
-.sliders button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.5rem;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    border: none;
-    background: rgb(73, 73, 73);
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-.controls {
-    display: flex;
-    flex-direction: column;
-  }
-
-.panel {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 20vh;
-  }
-
-.panel button {
-    font-size: 1.2rem;
-    margin: 1rem;
-    padding: 1rem 2rem;
-    background: rgb(31, 33, 63);
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 1rem;
-  }
-
-.panel p {
-    font-size: 1.2rem;
-  }
-
-.generate-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-.adjust,
-.lock {
-    font-size: 2rem;
-    border: none;
-    background: none;
-    cursor: pointer;
-    margin: 2rem 0rem;
-  }
-
-  /* Slider Stuff */
-input[type="range"] {
-    -webkit-appearance: none;
-    margin: 1rem 0rem;
-    width: 100%;
-    position: relative;
-    border-radius: 1rem;
-    cursor: pointer;
-  }
-
-.copy-container {
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    background: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-.copy-popup {
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 2rem;
-    transform: translateY(-2rem);
-    min-width: 30%;
-    min-height: 30vh;
-  }
-
-.copy-popup h4 {
-    font-size: 2rem;
-    padding: 2rem;
-  }
-
-.copy-container.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-.copy-popup.active {
-    transform: translateY(0rem);
-  }
-
-/* Footer */
-footer {
-  background: rgb(31, 33, 63);
-  color: white;
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 1.2rem;
+/* Container for hero content */
+.hero-content {
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
 }
 
-footer p {
-  margin: 0;
+/* Big title in hero section */
+.hero-title {
+  font-size: 56px;
+  font-weight: bold;
+  color: var(--text-white);
+  margin-bottom: 24px;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtitle text under the title */
+.hero-subtitle {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+/* Main CTA button in hero */
+.hero-cta-btn {
+  padding: 18px 48px;
+  font-size: 20px;
+  background-color: var(--accent-orange);
+  color: var(--text-white);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+.hero-cta-btn:hover {
+  background-color: #d9731f;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Features section - showing what the app does */
+.features-section {
+  background-color: var(--bg-secondary);
+  padding: 80px 40px;
+}
+
+/* Section titles throughout the page */
+.section-title {
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+/* Grid for the three feature cards */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual feature card */
+.feature-card {
+  background-color: var(--bg-card);
+  padding: 40px 32px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  border-left: 5px solid;
+  text-align: center;
+}
+
+/* Card lifts up when you hover */
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* First card has purple border */
+.feature-card-1 {
+  border-left-color: var(--accent-purple);
+}
+
+/* Second card has green border */
+.feature-card-2 {
+  border-left-color: var(--accent-green);
+}
+
+/* Third card has pink border */
+.feature-card-3 {
+  border-left-color: var(--accent-pink);
+}
+
+/* Feature title styling */
+.feature-title {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+/* Feature description text */
+.feature-description {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Main palette section - where colors are displayed */
+.main-section {
+  background-color: var(--bg-card);
+  padding: 80px 40px;
+}
+
+/* Container to center everything */
+.main-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Container holding the three color swatches */
+.palette-container {
+  width: 900px;
+  display: flex;
+  margin: 0 auto 40px;
+  gap: 20px;
+  background-color: var(--bg-secondary);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Each color swatch - 300px wide */
+.swatch {
+  width: 300px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Swatch grows a bit when you hover */
+.swatch:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hex code text on each swatch */
+.hex-code {
+  color: var(--text-white);
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  user-select: none;
+}
+
+/* Button container */
+.controls-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+/* Generate button with gradient */
+.generate-btn {
+  padding: 16px 48px;
+  font-size: 18px;
+  background: var(--gradient-card-1);
+  color: var(--text-white);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+/* Button lifts up on hover */
+.generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Copy notification message */
+.copied-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: var(--text-white);
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1000;
+  box-shadow: var(--shadow-xl);
+}
+
+/* Show the message when copying */
+.copied-message.show {
+  opacity: 1;
+}
+
+/* Footer - pretty gradient background */
+.page-footer {
+  background: var(--gradient-footer);
+  padding: 60px 80px 30px;
+  color: var(--text-white);
+}
+
+/* Footer content area */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+}
+
+/* Footer text */
+.footer-bottom p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Names in footer - white and bold */
+.highlight {
+  color: var(--text-white);
+  font-weight: bold;
+  font-size: 18px;
 }
