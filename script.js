@@ -2,9 +2,11 @@
 const swatch1 = document.getElementById('swatch1');
 const swatch2 = document.getElementById('swatch2');
 const swatch3 = document.getElementById('swatch3');
+
 const hex1 = document.getElementById('hex1');
 const hex2 = document.getElementById('hex2');
 const hex3 = document.getElementById('hex3');
+
 const generateBtn = document.getElementById('generateBtn');
 const heroGenerateBtn = document.getElementById('heroGenerateBtn');
 const copiedMsg = document.getElementById('copiedMsg');

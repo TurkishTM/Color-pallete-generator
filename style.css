@@ -4,38 +4,38 @@
   --primary-dark: #1a202c;
   --primary: #2d3748;
   --primary-light: #4a5568;
-  
+
   /* Secondary colors - different shades of blue */
   --secondary-dark: #2c5282;
   --secondary: #3182ce;
   --secondary-light: #63b3ed;
-  
+
   /* Accent colors - fun colors for buttons and highlights */
   --accent-orange: #ed8936;
   --accent-green: #48bb78;
   --accent-purple: #9f7aea;
   --accent-pink: #f687b3;
   --accent-blue: #4299e1;
-  
+
   /* Background colors - for different sections */
   --bg-primary: #f7fafc;
   --bg-secondary: #edf2f7;
   --bg-card: #ffffff;
   --bg-dark: #1a202c;
-  
+
   /* Gradients - pretty color transitions */
   --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gradient-footer: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --gradient-card-1: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   --gradient-card-2: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
   --gradient-card-3: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-  
+
   /* Text colors - different shades for readability */
   --text-primary: #1a202c;
   --text-secondary: #4a5568;
   --text-light: #a0aec0;
   --text-white: #ffffff;
-  
+
   /* Shadows - to make things pop */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -79,13 +79,17 @@ html {
 
 /* Little decorative overlay effect */
 .hero-section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
   pointer-events: none;
 }
 
