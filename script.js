@@ -1,4 +1,4 @@
-// Getting all the elements we need from the page
+
 const swatch1 = document.getElementById('swatch1');
 const swatch2 = document.getElementById('swatch2');
 const swatch3 = document.getElementById('swatch3');
@@ -9,15 +9,12 @@ const hex3 = document.getElementById('hex3');
 
 const generateBtn = document.getElementById('generateBtn');
 
-// Function to create a random hex color
-// Just picks random characters from 0-9 and A-F
 function getRandomHex() {
   const chars = '0123456789ABCDEF';
   let hex = '#';
   
-  // Make 6 random hex digits
   for (let i = 0; i < 6; i++) {
-    hex = hex + chars[Math.floor(Math.random() * 16)];
+    hex = hex + chars[Math.floor(Math.random() * 18)];
   }
   
   return hex;
@@ -40,7 +37,6 @@ function generatePalette() {
   hex3.textContent = color3;
 }
 
-// Event listeners - what happens when users click things
 
 // Generate button in main section
 generateBtn.addEventListener('click', function() {

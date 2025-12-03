@@ -4,7 +4,6 @@ body {
   background-color: #f7fafc;
   color: #1a202c;
   line-height: 1.6;
-  overflow-x: hidden;
   margin: 0%;
 }
 
@@ -20,14 +19,11 @@ body {
   position: relative;
 }
 
-/* Container for hero content */
 .hero-content {
   max-width: 800px;
   position: relative;
-  z-index: 1;
 }
 
-/* Hero title */
 .hero-title {
   font-size: 56px;
   font-weight: bold;
@@ -38,7 +34,7 @@ body {
 /* Hero subtitle */
 .hero-subtitle {
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgb(255, 255, 255);
   line-height: 1.8;
 }
 
@@ -106,14 +102,13 @@ body {
 /* Main container */
 .main-container {
   max-width: 1000px;
-  margin: 0 auto;
+  margin:  auto;
 }
 
 /* Palette container */
 .palette-container {
   width: 940px;
   display: flex;
-  margin: 0 auto 40px;
   gap: 20px;
   background-color: #edf2f7;
   padding: 24px;
@@ -133,7 +128,7 @@ body {
   width: 300px;
   height: 400px;
   border-radius: 12px;
-  transition: all 0.3s ease;
+  transition: 0.3s ;
 }
 
 /* Swatch hover effect */
@@ -147,9 +142,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  user-select: all;
   cursor: text;
-  font-family: "Courier New", monospace;
 }
 
 /* Button container */
@@ -169,7 +162,7 @@ body {
   border-radius: 50px;
   cursor: pointer;
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition:  0.3s ease;
 }
 
 /* Button hover effect */
@@ -180,20 +173,16 @@ body {
 /* Footer */
 .page-footer {
   background-color: #1a202c;
-  padding: 60px 80px 30px;
+  padding: 60px 80px 30px 30px;
   color: #ffffff;
-}
-
-/* Footer content */
-.footer-bottom {
   text-align: center;
   padding-top: 20px;
 }
 
 /* Footer text */
-.footer-bottom p {
+.page-footer p {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255);
 }
 
 /* Names in footer */
